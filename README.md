@@ -5,12 +5,13 @@ This repository contains a frequently updated list of malicious IP addresses cau
 ## 📦 What's inside?
 
 The repository provides a blocklist (`bots.txt`) targeting general-purpose vulnerability scanners, automated exploits, and malicious bots. This catches things like:
-  - **Webmail scans:** `/roundcube/`, `/horde/`, `/webmail/`
-  - **Exposed secrets:** `.env`, `.aws/`, `.git`, `.ds_store`, `/id_rsa`
-  - **Web shells & payloads:** `/shell.php`, `/cmd.php`, `/eval(`, `/base64_decode`
-  - **IoT & routers:** `/cgi-bin/`, `/luci/`, `/setup.cgi`
-  - **Common traps:** Actuator endpoints, Nacos, Kubernetes namespaces, PHPUnit
-  - **Directory traversals:** `/etc/passwd`, `@fs`
+  - **Webmail scans:** `/roundcube/`, `/horde/`, `/v-webmail/`, `/webmail/`
+  - **Exposed secrets & Configs:** `.env`, `.aws/`, `.vscode/`, `.git`, `.ds_store`, `web-config.xml`, `id_rsa`, `known_hosts`, `.ssh`, `docker-compose`
+  - **Web shells & payloads:** `/makhdamxshell`, `/shell.php`, `/cmd.php`, `/eval(`, `/base64_decode`, `/xsas.php`, `/gpt-sh.php`, `/aligk.php`, `/webshell`, etc.
+  - **IoT & routers:** `/cgi-bin/`, `/luci/`, `/setup.cgi`, `/boardSettings`
+  - **Common traps:** `actuator`, `nacos`, `api/v1/namespaces`, `phpunit`, `Telerik`
+  - **Directory traversals:** `@fs`, `/etc/passwd`
+  - **Remote Desktop & Exchange:** `/RDWeb`, `/Remote/`, `/owa/`, `/autodiscover/`
   - **WordPress enumeration & brute-force:** `/wp-login`, `/wp-admin`, `/wp-includes`, `/xmlrpc`, etc.
   - *...and many more.*
 
