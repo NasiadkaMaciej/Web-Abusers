@@ -6,11 +6,11 @@ This repository contains a frequently updated list of malicious IP addresses cau
 
 The repository provides a blocklist (`bots.txt`) targeting general-purpose vulnerability scanners, automated exploits, and malicious bots. This catches things like:
   - **Webmail scans:** `/roundcube/`, `/horde/`, `/v-webmail/`, `/webmail/`
-  - **Exposed secrets & Configs:** `.env`, `.aws/`, `.vscode/`, `.git`, `.ds_store`, `web-config.xml`, `id_rsa`, `known_hosts`, `.ssh`, `docker-compose`
+  - **Exposed secrets & Configs:** `.env`, `.aws/`, `.vscode/`, `.git`, `.ds_store`, `web-config.xml`, `id_rsa`, `known_hosts`, `.ssh`, `docker-compose`, `app.php`, `config.php`, `database.php`, `mail.php`, `services.php`, `constants.js`, `aws.json`, `mailgun.json`, `secrets.json`, `sendgrid.json`
   - **Web shells & payloads:** `/makhdamxshell`, `/shell.php`, `/cmd.php`, `/eval(`, `/base64_decode`, `/xsas.php`, `/gpt-sh.php`, `/aligk.php`, `/webshell`, etc.
   - **IoT & routers:** `/cgi-bin/`, `/luci/`, `/setup.cgi`, `/boardSettings`
   - **Common traps:** `actuator`, `nacos`, `api/v1/namespaces`, `phpunit`, `Telerik`
-  - **Directory traversals:** `@fs`, `/etc/passwd`
+  - **Directory traversals:** `@fs`, `/etc/passwd`, `../`
   - **Remote Desktop & Exchange:** `/RDWeb`, `/Remote/`, `/owa/`, `/autodiscover/`
   - **WordPress enumeration & brute-force:** `/wp-login`, `/wp-admin`, `/wp-includes`, `/xmlrpc`, etc.
   - *...and many more.*
@@ -26,8 +26,10 @@ If you plan to use this list in your own setup, please keep a few things in mind
    To effectively handle aggressive, returning bots without risking permanent blocks, my server utilizes fail2ban's native progressive banning (`bantime.increment`). If an IP from this list serves its initial 1-month ban and attacks again, its penalty is automatically multiplied (e.g., 2 months, 4 months, up to a maximum of 1 year).
 
 3. **Git Repository Size**
-   Since this list is updated frequently via an automated script, the commit history will grow quite a bit over time. If you only want the data, it's better to just fetch the raw `.txt` file directly rather than cloning the whole repo.
-
+   Since this list is updated frequently via an automated script, the commit history will grow quite a bit over time. If you only want the data, it's better to just fetch the raw `.txt` file directly rather than cloning the whole repo:
+   ```bash
+   curl -sO https://raw.githubusercontent.com/NasiadkaMaciej/Web-Abusers/master/bots.txt
+   
 4. **GeoIP Blocking (Missing RU/CN IPs)**
    You might notice that there are very few or no Russian (RU) and Chinese (CN) IP addresses in this list. This is because these countries are blocked entirely at the firewall level using GeoIP filtering on my server. As a result, traffic from these countries never reaches the web server and is not processed by `fail2ban`.
 
